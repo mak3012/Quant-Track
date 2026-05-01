@@ -5,3 +5,5 @@ numpy
 yfinance
 psycopg2-binary
 pydantic
+supabase
+python-dotenv

@@ -7,10 +7,14 @@ import traceback
 
 app = FastAPI(title="Quant-Track API", description="Quantitative Strategy Backtester")
 
+import os
+
 # Configure CORS for frontend access
+origins = os.getenv("ALLOWED_ORIGINS", "*").split(",")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allows all origins, adjust in production for security
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: quant-track-backend
+    env: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: FINANCE_API_KEY
+        sync: false
+      - key: ALLOWED_ORIGINS
+        sync: false
